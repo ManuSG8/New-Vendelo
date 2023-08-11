@@ -35,6 +35,12 @@ class ProductsController < ApplicationController
         end
     end
 
+    def destroy
+        @product = Product.find(params[:id])
+        @product.destroy
+        redirect_to products_path, notice: 'Tu producto se ha eliminado correctamente', status: :see_other # Hay que cambiar el codigo de estado que devuelve el redirect_to
+    end
+
     private
 
     def product_params # Funcion que recoge los parametros enviados en el formulario
