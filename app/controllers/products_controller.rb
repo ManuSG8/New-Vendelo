@@ -44,6 +44,6 @@ class ProductsController < ApplicationController
     private
 
     def product_params # Funcion que recoge los parametros enviados en el formulario
-        params.require(:product).permit(:title, :description, :price) # Le indicamos que tiene que coger el objeto 'product', y solo se guardaran esos parametros en la BD con permit()
+        params.require(:product).permit(:title, :description, :price, :photo) # Le indicamos que tiene que coger el objeto 'product', y solo se guardaran esos parametros en la BD con permit()
     end
 end
