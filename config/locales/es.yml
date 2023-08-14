@@ -29,6 +29,7 @@ es:
   products:
     index:
       title: 'Productos'
+      all: 'Todos'
     new:
       title: 'Añadir producto'
     create:

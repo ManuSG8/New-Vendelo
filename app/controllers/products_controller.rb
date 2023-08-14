@@ -1,6 +1,12 @@
 class ProductsController < ApplicationController
     def index
-        @products = Product.all.with_attached_photo.order(created_at: :desc) # Con with_attached_photo evitamos las consultas extra a la hora de listar los productos
+        @categories = Category.all.order(name: :asc).load_async # Con load_async hacemos que las query sean asincronas, asi no tienen que esperar a que se resuelva antes de pasara a la siguiente
+        @products = Product.all.with_attached_photo.order(created_at: :desc).load_async # Con with_attached_photo evitamos las consultas extra a la hora de listar los productos
+
+        # Filtrar por categorias
+        if params[:category_id] # Si existe ese parametro en la URL, filtramos
+            @products = @products.where(category_id: params[:category_id])
+        end
     end
 
     def show
