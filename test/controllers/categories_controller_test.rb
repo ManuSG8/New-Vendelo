@@ -2,7 +2,7 @@ require "test_helper"
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @category = categories(:one)
+    @category = categories(:clothes) # Le pasamos 'Clothes', porque no tiene productos asociados, para evitar que el test del metodo destroy de error. Porque definimos que no se puede borrar una categoria que tenga productos asociados
   end
 
   test "should get index" do

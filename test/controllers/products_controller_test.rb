@@ -5,7 +5,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
         get products_path # products_path equivalente a '/products'
 
         assert_response :success
-        assert_select '.product', 2 # Busca por la clase product que definimos en el index.html.erb
+        assert_select '.product', 3 # Busca por la clase product que definimos en el index.html.erb
     end
 
     test 'render a detailed product page' do 
@@ -29,7 +29,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
             product: {
                 title: 'Nintendo 64',
                 description: 'Le faltan los cables',
-                price: 45
+                price: 45,
+                category_id: categories(:videogames).id
             }
         }
 

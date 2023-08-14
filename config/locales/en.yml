@@ -8,6 +8,7 @@ en:
         title: 'Title'
         description: 'Description'
         price: 'Price'
+        category_id: 'Category'
         photo: 'Photo'
     errors:
       models:

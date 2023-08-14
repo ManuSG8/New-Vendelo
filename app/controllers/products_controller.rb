@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
     def index
-        @products = Product.all.with_attached_photo # Con with_attached_photo evitamos las consultas extra a la hora de listar los productos
+        @products = Product.all.with_attached_photo.order(created_at: :desc) # Con with_attached_photo evitamos las consultas extra a la hora de listar los productos
     end
 
     def show
@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params # Funcion que recoge los parametros enviados en el formulario
-        params.require(:product).permit(:title, :description, :price, :photo) # Le indicamos que tiene que coger el objeto 'product', y solo se guardaran esos parametros en la BD con permit()
+        params.require(:product).permit(:title, :description, :price, :category_id, :photo) # Le indicamos que tiene que coger el objeto 'product', y solo se guardaran esos parametros en la BD con permit()
     end
 
     def product # Funcion que busca el producto por el ID en la URL
