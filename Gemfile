@@ -70,3 +70,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Gema para busquedas de texto en PostgreSQL
+gem "pg_search", "~> 2.3"

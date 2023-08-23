@@ -35,6 +35,7 @@ en:
     index:
       title: 'Products:'
       all: 'All'
+      query_text: 'What do you want to search?'
       min_price: 'Min price'
       max_price: 'Max price'
     show:

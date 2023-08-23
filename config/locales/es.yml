@@ -30,6 +30,7 @@ es:
     index:
       title: 'Productos'
       all: 'Todos'
+      query_text: 'Que quieres buscar?'
       min_price: 'Precio minimo'
       max_price: 'Precio maximo'
     new:

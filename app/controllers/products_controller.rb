@@ -8,7 +8,10 @@ class ProductsController < ApplicationController
             @products = @products.where(category_id: params[:category_id])
         end
 
-        if params[:min_price].present? # Con present? comprobamos que el parametro tiene algun valor, porque puede ser que se envie vacio
+        if params[:query_text].present? # Con present? comprobamos que el parametro tiene algun valor, porque puede ser que se envie vacio
+            @products = @products.search_full_text(params[:query_text]) 
+        end
+        if params[:min_price].present? 
             @products = @products.where('price >= ?', params[:min_price]) # El '?' es igual que una consulta preparada de PHP, le pasamos el min_price
         end
         if params[:max_price].present?
